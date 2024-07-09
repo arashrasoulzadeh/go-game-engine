@@ -8,8 +8,8 @@ type Leaderboard struct {
 }
 
 type LeaderboardItem struct {
-	Owner string `bson:"owner" json:"owner"`
-	Index int    `bson:"index" json:"index"`
+	Owner UserID `bson:"owner" json:"owner"`
+	Score int    `bson:"score" json:"score"`
 }
 
 func CreateLeaderboard() *Leaderboard {
@@ -37,7 +37,7 @@ func (leaderboard *Leaderboard) SetID(id string) {
 
 func (leaderboard *Leaderboard) Sorted() []LeaderboardItem {
 	sort.Slice(leaderboard.Items, func(i, j int) bool {
-		return leaderboard.Items[i].Index < leaderboard.Items[j].Index
+		return leaderboard.Items[i].Score < leaderboard.Items[j].Score
 	})
 	return leaderboard.Items
 }

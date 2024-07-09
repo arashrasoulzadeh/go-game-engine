@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-game/models"
+	"github.com/arashrasoulzadeh/go-game-engine/models"
 	"math/rand"
 	"testing"
 )
@@ -18,7 +18,7 @@ func TestConstructor(t *testing.T) {
 
 	for _ = range 100 {
 		lb.Add(models.LeaderboardItem{
-			Index: rand.Intn(100),
+			Score: rand.Intn(100),
 		})
 	}
 	fmt.Println(lb.Sorted())
