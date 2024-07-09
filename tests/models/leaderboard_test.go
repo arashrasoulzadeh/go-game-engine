@@ -16,7 +16,7 @@ func TestConstructor(t *testing.T) {
 	}
 	lb.Init()
 
-	for _ = range 100 {
+	for range 100 {
 		lb.Add(models.LeaderboardItem{
 			Score: rand.Intn(100),
 		})
